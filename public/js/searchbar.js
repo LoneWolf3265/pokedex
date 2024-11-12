@@ -59,7 +59,6 @@ function initSearchBar() {
                     "hide-searchbar",
                     allRowsHidden
                 );
-                console.log(category);
                 // If any category is visible, the region should not be hidden
                 if (!allRowsHidden) {
                     allCategoriesHidden = false;
