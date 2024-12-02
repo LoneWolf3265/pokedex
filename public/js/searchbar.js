@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     initSearchBar();
+    getPossibleUrlParameter();
 });
 
 function initSearchBar() {
@@ -88,4 +89,13 @@ function initSearchBar() {
         const notFoundText = document.getElementById("js-not-found");
         notFoundText.classList.toggle("hide-searchbar", !allRegionsHidden);
     });
+}
+
+function getPossibleUrlParameter() {
+    const url = new URL(window.location.href);
+    const query = decodeURIComponent(url.search.substring(1));
+    let searchbar = document.getElementById("js-searchbar");
+    searchbar.value = query;
+    
+    searchbar.dispatchEvent(new Event('input', { bubbles: true }));
 }
